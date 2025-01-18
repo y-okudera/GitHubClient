@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Feature
 
 @main
-struct GitHubClientApp: App {
+struct App: SwiftUI.App {
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GitHubUserListView()
         }
     }
 }

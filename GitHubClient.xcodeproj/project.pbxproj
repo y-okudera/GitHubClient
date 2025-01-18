@@ -3,17 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC8DC0992D3A9AE700158BA2 /* GitHubClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DC0982D3A9AE700158BA2 /* GitHubClientApp.swift */; };
+		FC8DC0992D3A9AE700158BA2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DC0982D3A9AE700158BA2 /* App.swift */; };
 		FC8DC09B2D3A9AE700158BA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DC09A2D3A9AE700158BA2 /* ContentView.swift */; };
 		FC8DC09D2D3A9AE800158BA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC8DC09C2D3A9AE800158BA2 /* Assets.xcassets */; };
 		FC8DC0A12D3A9AE800158BA2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC8DC0A02D3A9AE800158BA2 /* Preview Assets.xcassets */; };
 		FC8DC0AB2D3A9AE800158BA2 /* GitHubClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DC0AA2D3A9AE800158BA2 /* GitHubClientTests.swift */; };
 		FC8DC0B52D3A9AE800158BA2 /* GitHubClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DC0B42D3A9AE800158BA2 /* GitHubClientUITests.swift */; };
 		FC8DC0B72D3A9AE800158BA2 /* GitHubClientUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DC0B62D3A9AE800158BA2 /* GitHubClientUITestsLaunchTests.swift */; };
+		FC8DC0C52D3A9DD100158BA2 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = FC8DC0C42D3A9DD100158BA2 /* Core */; };
+		FC8DC0C92D3B7AC900158BA2 /* Feature in Frameworks */ = {isa = PBXBuildFile; productRef = FC8DC0C82D3B7AC900158BA2 /* Feature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		FC8DC0952D3A9AE700158BA2 /* GitHubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC8DC0982D3A9AE700158BA2 /* GitHubClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubClientApp.swift; sourceTree = "<group>"; };
+		FC8DC0982D3A9AE700158BA2 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		FC8DC09A2D3A9AE700158BA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FC8DC09C2D3A9AE800158BA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC8DC09E2D3A9AE800158BA2 /* GitHubClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitHubClient.entitlements; sourceTree = "<group>"; };
@@ -52,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC8DC0C52D3A9DD100158BA2 /* Core in Frameworks */,
+				FC8DC0C92D3B7AC900158BA2 /* Feature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +83,7 @@
 				FC8DC0A92D3A9AE800158BA2 /* GitHubClientTests */,
 				FC8DC0B32D3A9AE800158BA2 /* GitHubClientUITests */,
 				FC8DC0962D3A9AE700158BA2 /* Products */,
+				FC8DC0C72D3B7AC900158BA2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,7 +100,7 @@
 		FC8DC0972D3A9AE700158BA2 /* GitHubClient */ = {
 			isa = PBXGroup;
 			children = (
-				FC8DC0982D3A9AE700158BA2 /* GitHubClientApp.swift */,
+				FC8DC0982D3A9AE700158BA2 /* App.swift */,
 				FC8DC09A2D3A9AE700158BA2 /* ContentView.swift */,
 				FC8DC09C2D3A9AE800158BA2 /* Assets.xcassets */,
 				FC8DC09E2D3A9AE800158BA2 /* GitHubClient.entitlements */,
@@ -129,6 +134,13 @@
 			path = GitHubClientUITests;
 			sourceTree = "<group>";
 		};
+		FC8DC0C72D3B7AC900158BA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +157,10 @@
 			dependencies = (
 			);
 			name = GitHubClient;
+			packageProductDependencies = (
+				FC8DC0C42D3A9DD100158BA2 /* Core */,
+				FC8DC0C82D3B7AC900158BA2 /* Feature */,
+			);
 			productName = GitHubClient;
 			productReference = FC8DC0952D3A9AE700158BA2 /* GitHubClient.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +233,10 @@
 				Base,
 			);
 			mainGroup = FC8DC08C2D3A9AE700158BA2;
+			packageReferences = (
+				FC8DC0C32D3A9DD100158BA2 /* XCLocalSwiftPackageReference "Core" */,
+				FC8DC0C62D3B7AC000158BA2 /* XCLocalSwiftPackageReference "Feature" */,
+			);
 			productRefGroup = FC8DC0962D3A9AE700158BA2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,7 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC8DC09B2D3A9AE700158BA2 /* ContentView.swift in Sources */,
-				FC8DC0992D3A9AE700158BA2 /* GitHubClientApp.swift in Sources */,
+				FC8DC0992D3A9AE700158BA2 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +452,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
@@ -440,7 +460,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.GitHubClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -468,7 +488,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
@@ -476,7 +496,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.GitHubClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -609,6 +629,29 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		FC8DC0C32D3A9DD100158BA2 /* XCLocalSwiftPackageReference "Core" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Core;
+		};
+		FC8DC0C62D3B7AC000158BA2 /* XCLocalSwiftPackageReference "Feature" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Feature;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC8DC0C42D3A9DD100158BA2 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		FC8DC0C82D3B7AC900158BA2 /* Feature */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC8DC0C62D3B7AC000158BA2 /* XCLocalSwiftPackageReference "Feature" */;
+			productName = Feature;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FC8DC08D2D3A9AE700158BA2 /* Project object */;
 }
