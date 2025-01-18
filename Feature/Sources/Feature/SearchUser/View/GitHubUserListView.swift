@@ -74,7 +74,7 @@ public struct GitHubUserListView: View {
                 set: { if !$0 { viewModel.selectedUser = nil } }
             )) {
                 if let user = viewModel.selectedUser {
-                    // TODO: to next page.
+                    WebViewPage(urlString: user.htmlUrl, navigationTitle: user.login)
                 }
             }
             .alert(isPresented: $viewModel.showingAlert) {
