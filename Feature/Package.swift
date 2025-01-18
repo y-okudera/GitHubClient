@@ -30,11 +30,17 @@ let package = Package(
             dependencies: [
                 "Core",
                 "WebView",
+            ],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
             ]
         ),
         .target(
             name: "WebView",
-            dependencies: ["Core"]
+            dependencies: ["Core"],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]
         ),
     ]
 )

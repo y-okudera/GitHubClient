@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 final class GitHubUserListViewModel: ObservableObject {
 
     @Published private(set) var users: [GitHubUser] = []
@@ -19,8 +20,15 @@ final class GitHubUserListViewModel: ObservableObject {
         }
     }
     @Published var selectedUser: GitHubUser?
+
+    private let gitHubUserRepository: GitHubUserRepository
     private var currentPage = 1
     private var canLoadMore = true
+
+    // TODO: DI
+    init(gitHubUserRepository: GitHubUserRepository = GitHubUserRepositoryImpl()) {
+        self.gitHubUserRepository = gitHubUserRepository
+    }
 
     /// ユーザーリストを初期化して取得
     func initializeFetch(query: String) {
@@ -40,15 +48,15 @@ final class GitHubUserListViewModel: ObservableObject {
 
         Task {
             do {
-                let result = try await GitHubUserRepository.searchUsers(query: query, page: currentPage)
-                DispatchQueue.main.async {
+                let result = try await self.gitHubUserRepository.searchUsers(query: query, page: currentPage)
+                await MainActor.run {
                     self.users.append(contentsOf: result.items)
                     self.isLoading = false
                     self.currentPage += 1
                     self.canLoadMore = self.users.count < result.totalCount
                 }
             } catch {
-                DispatchQueue.main.async {
+                await MainActor.run {
                     self.errorMessage = error.localizedDescription
                     self.isLoading = false
                 }
