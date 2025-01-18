@@ -8,17 +8,17 @@
 import Core
 import SwiftUI
 
-struct WebViewPage: View {
+public struct WebViewPage: View {
 
     private let urlString: String
     private let navigationTitle: String
 
-    init(urlString: String, navigationTitle: String) {
+    public init(urlString: String, navigationTitle: String) {
         self.urlString = urlString
         self.navigationTitle = navigationTitle
     }
 
-    var body: some View {
+    public var body: some View {
         WebView(urlString: urlString)
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(navigationTitle)

@@ -5,8 +5,8 @@
 //  Created by okudera on 2025/01/17.
 //
 
+import SearchUser
 import SwiftUI
-import Feature
 
 @main
 struct App: SwiftUI.App {
