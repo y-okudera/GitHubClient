@@ -44,24 +44,3 @@ public struct SearchBar: View {
         .previewLayout(.sizeThatFits)
         .padding()
 }
-
-/// プレビュー用のラッパー
-/// SwiftUIのプレビューで`@Binding`を扱うために使用
-struct StatefulPreviewWrapper<Value>: View where Value: Equatable {
-    @State private var value: Value
-    private let content: (Binding<Value>) -> AnyView
-
-    init(_ initialValue: Value, content: @escaping (Binding<Value>) -> AnyView) {
-        self._value = State(initialValue: initialValue)
-        self.content = content
-    }
-
-    init(_ initialValue: Value, content: @escaping (Binding<Value>) -> some View) {
-        self._value = State(initialValue: initialValue)
-        self.content = { AnyView(content($0)) }
-    }
-
-    var body: some View {
-        content($value)
-    }
-}
