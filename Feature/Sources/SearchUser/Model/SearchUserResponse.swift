@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct SearchUserResponse: Decodable {
-    
+public struct SearchUserResponse: Decodable, Sendable {
+
     let totalCount: Int
     let items: [GitHubUser]
 }
