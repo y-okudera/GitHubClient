@@ -1,21 +1,30 @@
 //
-//  SwiftUIView.swift
-//  
+//  GitHubUserListView.swift
+//
 //
 //  Created by okudera on 2025/01/18.
 //
 
 import Core
+import SafeDI
 import SwiftUI
 import WebView
 
-public struct GitHubUserListView: View {
+@Instantiable
+public struct GitHubUserListView: Instantiable, View {
 
-    @StateObject private var viewModel = GitHubUserListViewModel()
+    @Instantiated @StateObject private var viewModel: GitHubUserListViewModel
+
+    public init(viewModel: GitHubUserListViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
+
+    public init(gitHubUserRepository: GitHubUserRepository) {
+        self.init(viewModel: GitHubUserListViewModel(gitHubUserRepository: gitHubUserRepository))
+    }
+    
     private let initialQuery = "swift"
-
-    public init() {}
-
+    
     public var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
@@ -27,7 +36,7 @@ public struct GitHubUserListView: View {
                             viewModel.initializeFetch(query: newQuery)
                         }
                     }
-
+                
                 // リストビュー
                 Group {
                     if viewModel.users.isEmpty {
@@ -93,5 +102,5 @@ public struct GitHubUserListView: View {
 }
 
 #Preview {
-    GitHubUserListView()
+    GitHubUserListView(gitHubUserRepository: GitHubUserRepositoryImpl())
 }

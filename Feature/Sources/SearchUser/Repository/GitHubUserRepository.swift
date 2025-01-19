@@ -6,8 +6,9 @@
 //
 
 import Core
+import SafeDI
 
-protocol GitHubUserRepository: Sendable {
+public protocol GitHubUserRepository: Sendable {
     /// GitHubユーザーを検索
     /// - Parameters:
     ///   - query: 検索クエリ
@@ -16,9 +17,12 @@ protocol GitHubUserRepository: Sendable {
     func searchUsers(query: String, page: Int) async throws -> SearchUserResponse
 }
 
-struct GitHubUserRepositoryImpl: GitHubUserRepository {
+@Instantiable(fulfillingAdditionalTypes: [GitHubUserRepository.self])
+public struct GitHubUserRepositoryImpl: Instantiable, GitHubUserRepository {
 
-    func searchUsers(query: String, page: Int) async throws -> SearchUserResponse {
+    public init() {}
+
+    public func searchUsers(query: String, page: Int) async throws -> SearchUserResponse {
         return try await APIClient.perform(
             request: SearchUserRequest(query: query, page: page),
             responseType: SearchUserResponse.self

@@ -5,10 +5,12 @@
 //  Created by okudera on 2025/01/18.
 //
 
+import SafeDI
 import SwiftUI
 
 @MainActor
-final class GitHubUserListViewModel: ObservableObject {
+@Instantiable
+public final class GitHubUserListViewModel: Instantiable, ObservableObject {
 
     @Published private(set) var users: [GitHubUser] = []
     @Published private(set) var isLoading: Bool = false
@@ -21,12 +23,12 @@ final class GitHubUserListViewModel: ObservableObject {
     }
     @Published var selectedUser: GitHubUser?
 
-    private let gitHubUserRepository: GitHubUserRepository
     private var currentPage = 1
     private var canLoadMore = true
 
-    // TODO: DI
-    init(gitHubUserRepository: GitHubUserRepository = GitHubUserRepositoryImpl()) {
+    @Received private let gitHubUserRepository: GitHubUserRepository
+
+    public init(gitHubUserRepository: GitHubUserRepository) {
         self.gitHubUserRepository = gitHubUserRepository
     }
 
