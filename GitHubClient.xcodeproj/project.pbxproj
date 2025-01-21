@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D25B43792D401AC80082D7DF /* SafeDI in Frameworks */ = {isa = PBXBuildFile; productRef = D25B43782D401AC80082D7DF /* SafeDI */; };
+		D25B437C2D401B2E0082D7DF /* SafeDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25B437B2D401B2E0082D7DF /* SafeDI.swift */; };
 		FC2906BF2D3BF25400986ADD /* SearchUser in Frameworks */ = {isa = PBXBuildFile; productRef = FC2906BE2D3BF25400986ADD /* SearchUser */; };
 		FC8DC0992D3A9AE700158BA2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DC0982D3A9AE700158BA2 /* App.swift */; };
 		FC8DC09D2D3A9AE800158BA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC8DC09C2D3A9AE800158BA2 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D25B437B2D401B2E0082D7DF /* SafeDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeDI.swift; sourceTree = "<group>"; };
 		FC8DC0952D3A9AE700158BA2 /* GitHubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8DC0982D3A9AE700158BA2 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		FC8DC09C2D3A9AE800158BA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				FC8DC0982D3A9AE700158BA2 /* App.swift */,
+				D25B437B2D401B2E0082D7DF /* SafeDI.swift */,
 				FC8DC09C2D3A9AE800158BA2 /* Assets.xcassets */,
 				FC8DC09E2D3A9AE800158BA2 /* GitHubClient.entitlements */,
 				FC8DC09F2D3A9AE800158BA2 /* Preview Content */,
@@ -147,6 +150,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC8DC0BA2D3A9AE800158BA2 /* Build configuration list for PBXNativeTarget "GitHubClient" */;
 			buildPhases = (
+				D25B437A2D401AED0082D7DF /* Run SafeDITool */,
 				FC8DC0912D3A9AE700158BA2 /* Sources */,
 				FC8DC0922D3A9AE700158BA2 /* Frameworks */,
 				FC8DC0932D3A9AE700158BA2 /* Resources */,
@@ -275,12 +279,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D25B437A2D401AED0082D7DF /* Run SafeDITool */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SafeDITool";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$PROJECT_DIR/GitHubClient/SafeDI.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcrun --sdk macosx swift run --package-path \"$BUILD_ROOT/../../SourcePackages/checkouts/SafeDI\" --scratch-path \"$BUILD_DIR/SafeDITool-$CONFIGURATION\" SafeDITool --include \"$PROJECT_DIR/GitHubClient\" \"$PROJECT_DIR/Feature\" --dependency-tree-output \"$PROJECT_DIR/GitHubClient/SafeDI.swift\" --dot-file-output \"GitHubClient-DependencyTree\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FC8DC0912D3A9AE700158BA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FC8DC0992D3A9AE700158BA2 /* App.swift in Sources */,
+				D25B437C2D401B2E0082D7DF /* SafeDI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
