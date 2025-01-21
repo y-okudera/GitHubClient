@@ -298,7 +298,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "xcrun --sdk macosx swift run --package-path \"$BUILD_ROOT/../../SourcePackages/checkouts/SafeDI\" --scratch-path \"$BUILD_DIR/SafeDITool-$CONFIGURATION\" SafeDITool --include \"$PROJECT_DIR/GitHubClient\" \"$PROJECT_DIR/Feature\" --dependency-tree-output \"$PROJECT_DIR/GitHubClient/SafeDI.swift\" --dot-file-output \"GitHubClient-DependencyTree\"\n";
+			shellScript = "xcrun --sdk macosx swift run --package-path \"$BUILD_ROOT/../../SourcePackages/checkouts/SafeDI\" --scratch-path \"$BUILD_DIR/SafeDITool-$CONFIGURATION\" SafeDITool --include \"$PROJECT_DIR/GitHubClient\" \"$PROJECT_DIR/Feature\" --dependency-tree-output \"$PROJECT_DIR/GitHubClient/SafeDI.swift\" --dot-file-output \"SafeDI/output/GitHubClient-DependencyTree.dot\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

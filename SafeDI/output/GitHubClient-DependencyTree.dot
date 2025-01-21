@@ -1,0 +1,6 @@
+graph SafeDI {
+    ranksep=2
+    App -- "gitHubUserRepository: any GitHubUserRepository"
+    App -- "gitHubUserListViewBuilder: Instantiator<GitHubUserListView>"
+    "gitHubUserListViewBuilder: Instantiator<GitHubUserListView>" -- "viewModel: GitHubUserListViewModel"
+}
