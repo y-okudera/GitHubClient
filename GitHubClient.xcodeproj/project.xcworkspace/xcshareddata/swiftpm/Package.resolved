@@ -1,5 +1,5 @@
 {
-  "originHash" : "98dae1f7f601d57d4dbc74eb02bbe9ba184d7e3000f5b8e8ba74edd6dedcd96d",
+  "originHash" : "e0b61f65d203d3007460d3e553830b5989376c5656d7e9c5a4ca765c5c16a5c3",
   "pins" : [
     {
       "identity" : "jjliso8601dateformatter",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dfed/SafeDI.git",
       "state" : {
-        "revision" : "0726409bed47b657da38266b3c873f7e3e181fab",
-        "version" : "1.0.0"
+        "revision" : "27a8ed25c853964ec5872757f5885de6c64e5e3f",
+        "version" : "1.1.0"
       }
     },
     {
