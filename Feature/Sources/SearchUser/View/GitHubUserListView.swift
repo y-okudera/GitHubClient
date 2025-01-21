@@ -19,7 +19,7 @@ public struct GitHubUserListView: Instantiable, View {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
 
-    public init(gitHubUserRepository: GitHubUserRepository) {
+    public init(gitHubUserRepository: any GitHubUserRepository) {
         self.init(viewModel: GitHubUserListViewModel(gitHubUserRepository: gitHubUserRepository))
     }
     

@@ -26,9 +26,9 @@ public final class GitHubUserListViewModel: Instantiable, ObservableObject {
     private var currentPage = 1
     private var canLoadMore = true
 
-    @Received private let gitHubUserRepository: GitHubUserRepository
+    @Received private let gitHubUserRepository: any GitHubUserRepository
 
-    public init(gitHubUserRepository: GitHubUserRepository) {
+    public init(gitHubUserRepository: any GitHubUserRepository) {
         self.gitHubUserRepository = gitHubUserRepository
     }
 
