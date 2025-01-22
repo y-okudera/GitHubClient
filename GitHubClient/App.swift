@@ -20,14 +20,6 @@ public struct App: Instantiable, SwiftUI.App {
         self.gitHubUserRepository = gitHubUserRepository
         self.gitHubUserListViewBuilder = gitHubUserListViewBuilder
     }
-    
-    public init() {
-        let gitHubUserRepository = GitHubUserRepositoryImpl()
-        self.init(
-            gitHubUserRepository: gitHubUserRepository,
-            gitHubUserListViewBuilder: Instantiator<GitHubUserListView>.init({ _ in GitHubUserListView(gitHubUserRepository: gitHubUserRepository) })
-        )
-    }
 
     @Instantiated private let gitHubUserRepository: any GitHubUserRepository
     @Instantiated private let gitHubUserListViewBuilder: Instantiator<GitHubUserListView>

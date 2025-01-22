@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D25B43792D401AC80082D7DF /* SafeDI in Frameworks */ = {isa = PBXBuildFile; productRef = D25B43782D401AC80082D7DF /* SafeDI */; };
+		D25B437C2D401B2E0082D7DF /* SafeDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25B437B2D401B2E0082D7DF /* SafeDI.swift */; };
 		FC2906BF2D3BF25400986ADD /* SearchUser in Frameworks */ = {isa = PBXBuildFile; productRef = FC2906BE2D3BF25400986ADD /* SearchUser */; };
 		FC8DC0992D3A9AE700158BA2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DC0982D3A9AE700158BA2 /* App.swift */; };
 		FC8DC09D2D3A9AE800158BA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC8DC09C2D3A9AE800158BA2 /* Assets.xcassets */; };
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D25B437B2D401B2E0082D7DF /* SafeDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeDI.swift; sourceTree = "<group>"; };
 		FC8DC0952D3A9AE700158BA2 /* GitHubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8DC0982D3A9AE700158BA2 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		FC8DC09C2D3A9AE800158BA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D25B43792D401AC80082D7DF /* SafeDI in Frameworks */,
 				FC8DC0C52D3A9DD100158BA2 /* Core in Frameworks */,
 				FC2906BF2D3BF25400986ADD /* SearchUser in Frameworks */,
 			);
@@ -99,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				FC8DC0982D3A9AE700158BA2 /* App.swift */,
+				D25B437B2D401B2E0082D7DF /* SafeDI.swift */,
 				FC8DC09C2D3A9AE800158BA2 /* Assets.xcassets */,
 				FC8DC09E2D3A9AE800158BA2 /* GitHubClient.entitlements */,
 				FC8DC09F2D3A9AE800158BA2 /* Preview Content */,
@@ -145,6 +150,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC8DC0BA2D3A9AE800158BA2 /* Build configuration list for PBXNativeTarget "GitHubClient" */;
 			buildPhases = (
+				D25B437A2D401AED0082D7DF /* Run SafeDITool */,
 				FC8DC0912D3A9AE700158BA2 /* Sources */,
 				FC8DC0922D3A9AE700158BA2 /* Frameworks */,
 				FC8DC0932D3A9AE700158BA2 /* Resources */,
@@ -157,6 +163,7 @@
 			packageProductDependencies = (
 				FC8DC0C42D3A9DD100158BA2 /* Core */,
 				FC2906BE2D3BF25400986ADD /* SearchUser */,
+				D25B43782D401AC80082D7DF /* SafeDI */,
 			);
 			productName = GitHubClient;
 			productReference = FC8DC0952D3A9AE700158BA2 /* GitHubClient.app */;
@@ -233,6 +240,7 @@
 			packageReferences = (
 				FC8DC0C32D3A9DD100158BA2 /* XCLocalSwiftPackageReference "Core" */,
 				FC8DC0C62D3B7AC000158BA2 /* XCLocalSwiftPackageReference "Feature" */,
+				D25B43772D401AC80082D7DF /* XCRemoteSwiftPackageReference "SafeDI" */,
 			);
 			productRefGroup = FC8DC0962D3A9AE700158BA2 /* Products */;
 			projectDirPath = "";
@@ -271,12 +279,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D25B437A2D401AED0082D7DF /* Run SafeDITool */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SafeDITool";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$PROJECT_DIR/GitHubClient/SafeDI.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcrun --sdk macosx swift run --package-path \"$BUILD_ROOT/../../SourcePackages/checkouts/SafeDI\" --scratch-path \"$BUILD_DIR/SafeDITool-$CONFIGURATION\" SafeDITool --include \"$PROJECT_DIR/GitHubClient\" \"$PROJECT_DIR/Feature\" --dependency-tree-output \"$PROJECT_DIR/GitHubClient/SafeDI.swift\" --dot-file-output \"SafeDI/output/GitHubClient-DependencyTree.dot\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FC8DC0912D3A9AE700158BA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FC8DC0992D3A9AE700158BA2 /* App.swift in Sources */,
+				D25B437C2D401B2E0082D7DF /* SafeDI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +383,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -413,7 +445,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -643,7 +675,23 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		D25B43772D401AC80082D7DF /* XCRemoteSwiftPackageReference "SafeDI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dfed/SafeDI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		D25B43782D401AC80082D7DF /* SafeDI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D25B43772D401AC80082D7DF /* XCRemoteSwiftPackageReference "SafeDI" */;
+			productName = SafeDI;
+		};
 		FC2906BE2D3BF25400986ADD /* SearchUser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FC8DC0C62D3B7AC000158BA2 /* XCLocalSwiftPackageReference "Feature" */;
